@@ -1,4 +1,11 @@
 class HomeController < ApplicationController
+    def user_param
+        params.permit(:data=>[:name,:phone],
+            :data2=>[:name,:phone],
+            :home=>[:data=>[:name,:phone],:data2=>[:name,:phone]])
+            #permit untuk struktur jsonnya
+    end
+    
     def index
         @user = User.all
 
